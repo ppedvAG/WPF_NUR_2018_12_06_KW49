@@ -1,0 +1,15 @@
+C:\Users\kh2\source\repos\WPF_Kurs_Nürnberg\Reourcen\bin\Debug\Reourcen.exe.config
+C:\Users\kh2\source\repos\WPF_Kurs_Nürnberg\Reourcen\bin\Debug\Reourcen.exe
+C:\Users\kh2\source\repos\WPF_Kurs_Nürnberg\Reourcen\bin\Debug\Reourcen.pdb
+C:\Users\kh2\source\repos\WPF_Kurs_Nürnberg\Reourcen\obj\Debug\MainWindow.g.cs
+C:\Users\kh2\source\repos\WPF_Kurs_Nürnberg\Reourcen\obj\Debug\App.g.cs
+C:\Users\kh2\source\repos\WPF_Kurs_Nürnberg\Reourcen\obj\Debug\Reourcen_MarkupCompile.cache
+C:\Users\kh2\source\repos\WPF_Kurs_Nürnberg\Reourcen\obj\Debug\Reourcen_MarkupCompile.lref
+C:\Users\kh2\source\repos\WPF_Kurs_Nürnberg\Reourcen\obj\Debug\App.baml
+C:\Users\kh2\source\repos\WPF_Kurs_Nürnberg\Reourcen\obj\Debug\MainWindow.baml
+C:\Users\kh2\source\repos\WPF_Kurs_Nürnberg\Reourcen\obj\Debug\Reourcen.g.resources
+C:\Users\kh2\source\repos\WPF_Kurs_Nürnberg\Reourcen\obj\Debug\Reourcen.Properties.Resources.resources
+C:\Users\kh2\source\repos\WPF_Kurs_Nürnberg\Reourcen\obj\Debug\Reourcen.csproj.GenerateResource.cache
+C:\Users\kh2\source\repos\WPF_Kurs_Nürnberg\Reourcen\obj\Debug\Reourcen.csproj.CoreCompileInputs.cache
+C:\Users\kh2\source\repos\WPF_Kurs_Nürnberg\Reourcen\obj\Debug\Reourcen.exe
+C:\Users\kh2\source\repos\WPF_Kurs_Nürnberg\Reourcen\obj\Debug\Reourcen.pdb

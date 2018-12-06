@@ -1,0 +1,63 @@
+﻿<Window x:Class="ValueConverter.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ValueConverter"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="362.258">
+    <Window.Resources>
+        <!--Wenn eine Bindung an eine Property durchgeführt werden soll, welche einen anderen Datentyp liefert,
+        als ihn die Ziel-Property erwartet (oder ein Wert vor der Übergabe manipuliert werden soll), muss in den 
+        Ressourcen ein Converter eingebunden werden, welcher die Typumwandlung übernimmt-->
+        <local:DoubleToBrushConverter x:Key="double2brush"/>
+        <local:DoublesToBrushConverter x:Key="doubles2brush"/>
+    </Window.Resources>
+    <StackPanel Margin="10">
+        <Slider Minimum="0" Maximum="255"
+                x:Name="sdrRed"
+                Value="0"/>
+        <Border BorderBrush="Black" BorderThickness="1" Width="100" Height="100">
+            <Rectangle Width="100" Height="100">
+                <Rectangle.Fill>
+                    <Binding ElementName="sdrRed" Path="Value">
+                        <Binding.Converter>
+                            <!--Anstelle einer Bereitstellung über die Ressourcen, kann der Converter auch
+                                direkt in dem Binding-Objekt instanziert werden-->
+                            <local:DoubleToBrushConverter/>
+                        </Binding.Converter>
+                    </Binding>
+                </Rectangle.Fill>
+            </Rectangle>
+        </Border>
+        <Separator Margin="10"/>
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Text="R:" Width="20"/>
+            <Slider x:Name="sdrRed2" Minimum="0" Maximum="255" Width="256"/>
+            <TextBox Text="{Binding ElementName=sdrRed2, Path=Value, UpdateSourceTrigger=PropertyChanged}" Width="50"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Margin="0,5">
+            <TextBlock Text="G:" Width="20"/>
+            <Slider x:Name="sdrGreen" Minimum="0" Maximum="255" Width="256"/>
+            <TextBox Text="{Binding ElementName=sdrGreen, Path=Value, UpdateSourceTrigger=PropertyChanged}" Width="50"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Text="B:" Width="20"/>
+            <Slider x:Name="sdrBlue" Minimum="0" Maximum="255" Width="256"/>
+            <TextBox Text="{Binding ElementName=sdrBlue, Path=Value, UpdateSourceTrigger=PropertyChanged}" Width="50"/>
+        </StackPanel>
+        <Border BorderBrush="Black" BorderThickness="1" Width="100" Height="100" Margin="5">
+            <Rectangle Width="100" Height="100">
+                <Rectangle.Fill>
+                    <!--Wenn sich eine Property aus mehreren Quellen bedienen soll, muss ein MultiBinding eingerichtet werden, welches immer einen MultiValueConverter benötigt-->
+                    <MultiBinding Converter="{StaticResource doubles2brush}">
+                        <Binding ElementName="sdrRed2" Path="Value"/>
+                        <Binding ElementName="sdrGreen" Path="Value"/>
+                        <Binding ElementName="sdrBlue" Path="Value"/>
+                    </MultiBinding>
+                </Rectangle.Fill>
+            </Rectangle>
+        </Border>
+
+    </StackPanel>
+</Window>

@@ -1,0 +1,48 @@
+﻿<Window x:Class="Animationen.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Animationen"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="145.294" Width="385.882"
+        x:Name="wndMain" Background="Yellow">
+    <Canvas Margin="10">
+        <TextBlock Text="Möchten Sie eine Gehaltserhöhung haben?"/>
+        <Button Content="Ja" Canvas.Left="20" Canvas.Top="50" x:Name="btnJa">
+            <Button.Triggers>
+                <!--Animationen sind Property-Veränderungen über Zeit, welche durch einen EventTrigger ausgelöst
+                        werden. Die Property-Veränderungen werden in einem Storyboard definiert.
+                        Die Berechnung der Animationen erfolg in einem Side-Thread, wodurch die GUI die ganze Zeit über 
+                        benutzbar bleibt.-->
+                <EventTrigger RoutedEvent="MouseEnter">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation Storyboard.TargetName="btnJa"
+                                             Storyboard.TargetProperty="(Canvas.Left)"
+                                             From="20"
+                                             To="450"
+                                             Duration="0:0:0.8"
+                                             AutoReverse="True"
+                                             RepeatBehavior="0:1:0"/>
+                        </Storyboard>
+                    </BeginStoryboard> 
+                </EventTrigger>
+            </Button.Triggers>
+        </Button>
+        <Button Content="Nein" Canvas.Left="120" Canvas.Top="50">
+            <Button.Triggers>
+                <EventTrigger RoutedEvent="PreviewMouseDown">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ColorAnimation Storyboard.TargetName="wndMain"
+                                            Storyboard.TargetProperty="Background.(SolidColorBrush.Color)"
+                                            To="MidnightBlue"
+                                            Duration="0:0:10"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Button.Triggers>
+        </Button>
+    </Canvas>
+</Window>
